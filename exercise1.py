@@ -14,7 +14,7 @@ data = {
 }
 
 
-def reverse_dict(data):
+def reverse_dict(x):
     dict1 = {}
     for k, v in data.items():
         for subjects in v.split(','):
