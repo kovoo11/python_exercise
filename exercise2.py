@@ -7,14 +7,23 @@ Details of Caesar cipher:
 https://en.wikipedia.org/wiki/Caesar_cipher
 """
 encrypted_text = "CnwbxaOuxf rb jw nwm-cx-nwm xynw bxdaln yujcoxav oxa vjlqrwn unjawrwp. Rc qjb j lxvyanqnwbren, oungrkun nlxbhbcnv xo cxxub, urkajarnb jwm lxvvdwrch anbxdalnb cqjc uncb anbnjalqnab ydbq cqn bcjcn-xo-cqn-jac rw VU jwm mnenuxynab njbruh kdrum jwm mnyuxh VU yxfnanm jyyurljcrxwb."
+key = 17
 
+def decode_caesar(text, shift):
+    alphabets = 'abcdefghijklmnopqrstuvwxyz'
 
-def decode_caesar(text, key):
-    # TODO
+    text = text.lower()
+    n = len(text)
+
+    decoded_text = ""
+
+    for i in range(n):
+        character = text[i]
+        if character in alphabets:
+            location = alphabets.find(character)
+            new_location = (location + shift) % 26
+            decoded_text += alphabets[new_location]
+        else:
+            decoded_text += character
     return decoded_text
-
-
-# TODO
-for k in ...:
-    text_out = decode_caesar(encrypted_text, k)
-    print(text_out)
+print(decode_caesar(encrypted_text,key))
