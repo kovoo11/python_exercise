@@ -18,6 +18,20 @@ import re
 def check_password_validity(pw):
     # TODO
     # return a boolean `True` if the password is valid, `False` otherwise
+    counter = 0
+    if re.search(r'[a-z]',pw):
+        counter += 1
+    if re.search(r'[A-Z]',pw):
+        counter += 1
+    if re.search(r'[/d]',pw):
+        counter += 1
+    if re.search(r'[$#@]',pw):
+        counter += 1
+    if re.search(r'^.{6,}$',pw):
+        counter += 1
+    if re.search(r'^.{,12}$',pw):
+        counter += 1
+    return(bool(counter >= 5))
 
 good_password = "3GGEsdv2#gv1e4Ob2fbf"  # fails rule #6 only, so good
 bad_password = "sgdf3298b"  # fails rule #3 and #4, so bad
