@@ -17,7 +17,7 @@ data = {
 def reverse_dict(x):
     dict1 = {}
     for k, v in data.items():
-        for subjects in v.split(','):
+        for subjects in v.replace(' ','').split(','):
             if subjects not in dict1:
                 dict1[subjects] = [k]
             else:
